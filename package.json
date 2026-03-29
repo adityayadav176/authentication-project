@@ -1,0 +1,22 @@
+{
+  "name": "autentication-project",
+  "version": "1.0.0",
+  "description": "authentication with proper otp verification",
+  "keywords": [
+    "node",
+    "codeWithAditya"
+  ],
+  "license": "ISC",
+  "author": "Aditya Yadav",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "expres": "^0.0.5",
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14"
+  }
+}
