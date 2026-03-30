@@ -1,4 +1,6 @@
 import mongoose, { Schema } from "mongoose";
+import jwt from "jsonwebtoken"
+import bcrypt from "bcrypt"
 
 const userSchema = new Schema({
     username: {
@@ -45,6 +47,13 @@ const userSchema = new Schema({
         type: String,
     }
 }, { timestamps: true })
+
+userSchema.pre("save", async function () {
+    if (!this.isModified("password")) return;
+
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+});
 
 const userModal = mongoose.model("User", userSchema);
 export default userModal;
