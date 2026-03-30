@@ -1,7 +1,7 @@
-import mongoose, {Schema} from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const userSchema = new Schema({
-    name: {
+    username: {
         type: String,
         required: true
     },
@@ -13,6 +13,13 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: true
+    },
+    avatar: {
+        type: String, // cloudinary url
+        required: true
+    },
+    coverImage: {
+        type: String // cloudinary url
     },
     verifyOtp: {
         type: String,
@@ -33,8 +40,11 @@ const userSchema = new Schema({
     resetOtpExpiredAt: {
         type: Number,
         default: 0
+    },
+    refreshToken: {
+        type: String,
     }
-},{timestamps: true})
+}, { timestamps: true })
 
 const userModal = mongoose.model("User", userSchema);
 export default userModal;
