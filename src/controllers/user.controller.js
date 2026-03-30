@@ -85,3 +85,7 @@ const registerUser = asyncHandler(async(req, res) => {
         new ApiResponse(200, createdUser, "User registered successfully")
     )
 })
+
+export {
+    registerUser
+}
